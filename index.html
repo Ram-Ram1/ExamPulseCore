@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamPulseCore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ExamPulseCore</p>
+          <h1>Stay ahead of every test date</h1>
+        </div>
+        <div class="status-pill">MVP Draft</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <div class="panel-header">
+            <h2>Add Assessment</h2>
+            <span>Capture key exam details</span>
+          </div>
+
+          <form id="assessment-form">
+            <div class="form-grid">
+              <label>
+                <span>Assessment title</span>
+                <input type="text" id="title" name="title" placeholder="e.g. Biology Midterm" required />
+              </label>
+
+              <label>
+                <span>Subject / course</span>
+                <input type="text" id="subject" name="subject" placeholder="e.g. Biology 101" required />
+              </label>
+
+              <label>
+                <span>Room number</span>
+                <input type="text" id="room" name="room" placeholder="e.g. C-204" required />
+              </label>
+
+              <label>
+                <span>Test type</span>
+                <select id="type" name="type">
+                  <option value="Midterm">Midterm</option>
+                  <option value="Final">Final</option>
+                  <option value="Quiz">Quiz</option>
+                  <option value="Practical">Practical</option>
+                  <option value="Presentation">Presentation</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Date</span>
+                <input type="date" id="date" name="date" required />
+              </label>
+
+              <label>
+                <span>Time</span>
+                <input type="time" id="time" name="time" required />
+              </label>
+            </div>
+
+            <button type="submit" class="primary-btn">Save assessment</button>
+          </form>
+        </section>
+
+        <section class="panel dashboard-panel">
+          <div class="panel-header">
+            <h2>Countdown dashboard</h2>
+            <span>Urgency at a glance</span>
+          </div>
+
+          <div id="dashboard" class="dashboard"></div>
+        </section>
+      </main>
+
+      <section class="lower-grid">
+        <div class="panel reminder-panel">
+          <div class="panel-header">
+            <h2>Reminder engine</h2>
+            <span>Scheduled alerts</span>
+          </div>
+          <div id="reminders" class="reminder-list"></div>
+        </div>
+
+        <div class="panel tasks-panel">
+          <div class="panel-header">
+            <h2>Study task breakdown</h2>
+            <span>Micro-task planning</span>
+          </div>
+
+          <div class="task-input-row">
+            <input id="task-input" type="text" placeholder="Add study task..." />
+            <button id="add-task-btn" class="secondary-btn">Add</button>
+          </div>
+
+          <ul id="task-list" class="task-list"></ul>
+        </div>
+      </section>
+    </div>
+
+    <template id="card-template">
+      <article class="countdown-card">
+        <div class="card-header">
+          <div>
+            <p class="course-tag"></p>
+            <h3></h3>
+          </div>
+          <span class="urgency-badge"></span>
+        </div>
+
+        <div class="meta-blocks">
+          <div>
+            <label>Type</label>
+            <p class="type-value"></p>
+          </div>
+          <div>
+            <label>Room</label>
+            <p class="room-value"></p>
+          </div>
+        </div>
+
+        <div class="date-block">
+          <p class="date-label">Assessment date</p>
+          <p class="date-value"></p>
+        </div>
+
+        <div class="countdown-row">
+          <span>Countdown</span>
+          <strong class="countdown-value"></strong>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
